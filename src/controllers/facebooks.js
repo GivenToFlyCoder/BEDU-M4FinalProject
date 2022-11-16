@@ -23,7 +23,7 @@ function getFacebook(req, res) {
         .then(data => {
             data.length > 0 ?
                 (
-                    console.log('type of data:', typeof (data), 'lenght of data:', data.length),
+                    console.log('Data Found!!! Type of data:', typeof (data), 'lenght of data:', data.length),
                     res.status(200).send(data)
                 )
                 :
