@@ -12,7 +12,6 @@ app.use(bodyParser.json());
 // const db = 'BeduShop'
 // const dbUser = 'javiGN'
 // const dbPass = 'javiGN'
-
 // const uri = `mongodb+srv://${dbUser}:${dbPass}@cluster0.qrvngpz.mongodb.net/${db}?retryWrites=true&w=majority`
 
 // mongoose.connect(uri);
