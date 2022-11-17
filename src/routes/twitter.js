@@ -1,11 +1,11 @@
-const routerP = require('express').Router()
+const routerT = require('express').Router()
 
 const {    
     postTwitter
 } = require('../controllers/twitters')
 
-routerP.post('/', postTwitter)
+routerT.post('/', postTwitter)
 
-module.exports = routerP
+module.exports = routerT
 
 

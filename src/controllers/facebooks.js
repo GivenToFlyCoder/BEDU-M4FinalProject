@@ -8,17 +8,6 @@ function getFacebook(req, res) {
     const quantity = parseInt(req.query.quantity)
     console.log(state, quantity)
 
-    // const query = [
-    //     {
-    //         '$match': {
-    //             'state_name': state
-    //         }
-    //     },
-    //     {
-    //         '$limit': quantity
-    //     }
-    // ]
-
     const query = state != "all" ?
         [
             {

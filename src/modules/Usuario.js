@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+const mongoose = require("mongoose")
 const UniqueValidator = require("mongoose-unique-validator")
 const crypto = require("crypto")
 const jwt = require("jsonwebtoken")
@@ -82,4 +82,4 @@ SchemaUsuario.methods.publicData = function(){
 
 const Usuario = mongoose.model("Usuario", SchemaUsuario)
 
-module.exports = Usuario;
+module.exports = Usuario
