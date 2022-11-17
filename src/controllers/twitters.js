@@ -36,7 +36,7 @@ function postTwitter(req, res) {
                 }
             }
         }, {
-            '$limit': form.quantity
+            '$limit': parseInt(form.quantity)
         }
     ]
 

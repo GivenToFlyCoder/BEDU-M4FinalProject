@@ -36,7 +36,7 @@ function getFacebook(req, res) {
                 :
                 (
                     console.log('type of data:', typeof (data), 'lenght of data:', data.length),
-                    res.status(200).send(`No Match Found! State: ${state}, Quantity: ${quantity}`)
+                    res.status(404).send(`No Data Match Found! State: ${state}, Quantity: ${quantity}`)
                 )
         })
         .catch(err => res.status(500).send(err))
@@ -79,7 +79,7 @@ function postFacebookSearch(req, res) {
                 :
                 (
                     console.log('type of data:', typeof (data), 'lenght of data:', data.length),
-                    res.status(200).send(`No Match Found! State: ${form.state_name}, Topic: ${form.topic}, Quantity: ${form.quantity}`)
+                    res.status(404).send(`No Data Match Found! State: ${form.state_name}, Topic: ${form.topic}, Quantity: ${form.quantity}`)
                 )
         })
         .catch(err => res.status(500).send(err))
@@ -118,7 +118,7 @@ function postFacebookAdd(req, res) {
                 :
                 (
                     console.log(`ID document already exist! ${id}`),
-                    res.status(200).send(`ID document already exist! ${id}`)
+                    res.status(405).send(`Not Allowed! ID document already exist! ${id}`)
                 )
         })
 }
@@ -137,7 +137,7 @@ function deleteFacebook(req, res) {
                     :
                     (
                         console.log(`Nothing to delete! Id ${idDelete} no exist!`),
-                        res.status(200).send(`Nothing to delete! Id ${idDelete} no exist!`)
+                        res.status(405).send(`Not Allowed! Nothing to delete! Id ${idDelete} no exist!`)
                     )
             }
         )
@@ -162,13 +162,13 @@ function updateFacebook(req, res) {
                         itemFound.text = updates.text,
                         itemFound.clean_text = updates.clean_text,
                         await itemFound.save(),
-                        console.log('itemFound:', itemFound),
+                        console.log('Item Found and Succesfully Updated! :', itemFound),
                         res.status(200).send(itemFound)
                     )
                     :
                     (
                         console.log('itemFound not found:', itemFound),
-                        res.status(200).send(`itemFound not found: ${idUpdate}`)
+                        res.status(405).send(`Nothing to update! Item Not Found! ID: ${idUpdate}`)
                     )
             }
 
