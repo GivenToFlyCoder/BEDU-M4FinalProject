@@ -8,16 +8,34 @@ function getFacebook(req, res) {
     const quantity = parseInt(req.query.quantity)
     console.log(state, quantity)
 
-    const query = [
-        {
-            '$match': {
-                'state_name': state
+    // const query = [
+    //     {
+    //         '$match': {
+    //             'state_name': state
+    //         }
+    //     },
+    //     {
+    //         '$limit': quantity
+    //     }
+    // ]
+
+    const query = state != "all" ?
+        [
+            {
+                '$match': {
+                    'state_name': state
+                }
+            },
+            {
+                '$limit': quantity
             }
-        },
-        {
-            '$limit': quantity
-        }
-    ]
+        ]
+        :
+        [
+            {
+                '$limit': quantity
+            }
+        ]
 
     Facebook.aggregate(query)
         .then(data => {
@@ -86,20 +104,20 @@ function postFacebookAdd(req, res) {
 
     const query = [
         {
-          '$match': {
-            'id': id
-          }
+            '$match': {
+                'id': id
+            }
         }
-      ]
+    ]
 
-    console.log("req.body.id:",req.body.id)
+    console.log("req.body.id:", req.body.id)
     console.log(query)
 
     Facebook.aggregate(query)
         .then(result => {
-            
+
             result.length == 0 ?
-                
+
                 (
                     document.save()
                         .then(
