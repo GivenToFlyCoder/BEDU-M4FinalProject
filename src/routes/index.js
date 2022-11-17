@@ -7,5 +7,6 @@ router.get('/', (req,res) => {
 router.use('/facebook', require('./facebook'))
 router.use('/twitter', require('./twitter'))
 router.use('/sesnspfc', require('./sesnspfc'))
+router.use('/sesnspff', require('./sesnspff'))
 
 module.exports = router
