@@ -11,8 +11,7 @@ function getTokenFromHeader(req){
 }
 
 const auth = {
-    requerido : jwt({
-        // secret : 'secret',
+    requerido : jwt({       
         secret : process.env.SECRET,
         algorithms : ['HS256'],
         userProperty: 'usuario',
